@@ -52,6 +52,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	const HanoiGame = __webpack_require__(2);
+	const HanoiView = __webpack_require__(3);
 
 	$(() => {
 	  const rootEl = $('.hanoi');
@@ -133,6 +134,16 @@
 
 	module.exports = Game;
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	class View {
+	  constructor(game, $el) {}
+	}
+
+	module.exports = View;
 
 /***/ })
 /******/ ]);
