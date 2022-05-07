@@ -53,3 +53,15 @@ li {
   background: gray;
   border-radius: 25px;
 }
+
+.disk-1 {
+  width: 60px;
+}
+
+.disk-2 {
+  width: 120px;
+}
+
+.disk-3 {
+  width: 180px;
+}

@@ -4,6 +4,7 @@ class View {
     this.$el = $el;
 
     this.setupTowers();
+    this.render();
   }
 
   setupTowers() {
@@ -23,7 +24,18 @@ class View {
   }
 
   render() {
+    const $towers = this.$el.find('ul');
 
+    $towers.removeClass();
+
+    this.game.towers.forEach((disks, towerIdx) => {
+      const $disks = $towers.eq(towerIdx).children();
+      $disks.removeClass();
+
+      disks.forEach((diskwidth, diskIdx) => {
+        $disks.eq(-1 * (diskIdx + 1)).addClass(`disk-${diskwidth}`);
+      });
+    });
   }
 }
 
