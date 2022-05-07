@@ -42,6 +42,14 @@ ul {
   cursor: pointer;
 }
 
+ul:hover {
+  border-color: blue;
+}
+
+ul.selected {
+  border-color: red;
+}
+
 ul:nth-child(2) {
   margin: 0 20px;
 }
@@ -64,4 +72,13 @@ li {
 
 .disk-3 {
   width: 180px;
+}
+
+.game-over ul {
+  cursor: default;
+  border-color: black;
+}
+
+.game-over li {
+  background: green;
 }

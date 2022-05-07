@@ -32,6 +32,10 @@ class View {
 
     $towers.removeClass();
 
+    if (this.fromTowerIdx !== null) {
+      $towers.eq(this.fromTowerIdx).addClass('selected');
+    }
+
     this.game.towers.forEach((disks, towerIdx) => {
       const $disks = $towers.eq(towerIdx).children();
       $disks.removeClass();
@@ -59,7 +63,7 @@ class View {
 
     if (this.game.isWon()) {
       this.$el.off('click');
-      this.$el.addClass('game-over);');
+      this.$el.addClass('game-over');
       alert('Congratulations, Genius');
     }
   }
