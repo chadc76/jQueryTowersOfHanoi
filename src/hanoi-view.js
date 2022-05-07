@@ -7,18 +7,23 @@ class View {
   }
 
   setupTowers() {
-    const $ul1 = $("<ul>");
-    const $ul2 = $("<ul>");
-    const $ul3 = $("<ul>");
+    this.$el.empty();
 
-    for (let i = 0; i < 3; i++) {
-      let $li = $("<li>")
-      $li.data("pos", [0, i]);
+    let $tower, $disk;
 
-      $ul1.append($li);
+    for (let towerIdx = 0; towerIdx < 3; towerIdx++) {
+      $tower = $('<ul>');
+
+      for (let diskIdx = 0; diskIdx < 3; diskIdx++) {
+        $disk = $("<li>")
+        $tower.append($disk);
+      }
+      this.$el.append($tower)
     }
+  }
 
-    this.$el.append($ul1, $ul2, $ul3)
+  render() {
+
   }
 }
 
