@@ -3,6 +3,10 @@ class View {
     this.game = game;
     this.$el = $el;
 
+    this.fromTowerIdx = null;
+
+    this.$el.on('click', 'ul', this.clickTower.bind(this));
+
     this.setupTowers();
     this.render();
   }
@@ -36,6 +40,28 @@ class View {
         $disks.eq(-1 * (diskIdx + 1)).addClass(`disk-${diskwidth}`);
       });
     });
+  }
+
+  clickTower(event) {
+    const clickedTowerIdx = $(event.currentTarget).index();
+
+    if (this.fromTowerIdx === null) {
+      this.fromTowerIdx = clickedTowerIdx;
+    } else {
+      if (!this.game.move(this.fromTowerIdx, clickedTowerIdx)) {
+        alert('Invalid Move! Try again.');
+      }
+      
+      this.fromTowerIdx = null;
+    }
+
+    this.render();
+
+    if (this.game.isWon()) {
+      this.$el.off('click');
+      this.$el.addClass('game-over);');
+      alert('Congratulations, Genius');
+    }
   }
 }
 
